@@ -1,7 +1,9 @@
-FROM <IMAGE>
+FROM node:carbon
 
-RUN <COMMANDS>
+COPY . /code
 
-COPY <SRC> <DEST>
+WORKDIR /code
 
-CMD [ "executable" ]
+RUN npm install
+
+CMD [ "npm", "run", "dev" ]
