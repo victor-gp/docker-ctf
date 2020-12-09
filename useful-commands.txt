@@ -23,11 +23,11 @@ ifconfig
 sudo iptables -I DOCKER-ISOLATION-STAGE-2 -i br-dd25ae9c4c02 -o br-7774604c91aa -j ACCEPT
 sudo iptables -I DOCKER-ISOLATION-STAGE-2 -i br-7774604c91aa -o br-dd25ae9c4c02 -j ACCEPT
 # https://www.linode.com/docs/guides/control-network-traffic-with-iptables/
-sudo tcpdump -i br-xxxxxxxxxx -nnSX
+sudo tcpdump -i br-7774604c91aa -nnSX
 
 docker exec -it adoring_black sh # running an interactive shell inside the container (!)
 
-docker build --build-arg BACKEND_IP="172.18.0.2"
+docker build --build-arg BACKEND_IP=172.18.0.2 .
 
 less -r [filename] # to read `$ script` outputs (with bash escape sequences)
 
